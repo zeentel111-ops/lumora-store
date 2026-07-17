@@ -1,0 +1,29 @@
+import { getFaqs } from '@/lib/db';
+
+export const metadata = { title: 'الأسئلة الشائعة' };
+export const revalidate = 300;
+
+const DEFAULT_FAQS = [
+  { id: 'd1', question: 'كم تستغرق مدة التوصيل؟', answer: 'عادة بين 2-4 أيام حسب المنطقة.' },
+  { id: 'd2', question: 'هل يمكن الدفع عند الاستلام؟', answer: 'نعم، الدفع عند الاستلام متاح حاليًا لكل الطلبات.' },
+  { id: 'd3', question: 'هل المنتجات مناسبة للبشرة الحساسة؟', answer: 'نوضح نوع البشرة المناسب لكل منتج في صفحته، ويمكنكِ التواصل معنا لأي استفسار قبل الطلب.' },
+];
+
+export default async function FaqPage() {
+  const faqs = await getFaqs().catch(() => []);
+  const list = faqs.length ? faqs : DEFAULT_FAQS;
+
+  return (
+    <div className="max-w-2xl mx-auto px-5 py-16">
+      <h1 className="font-display text-4xl text-plum dark:text-ivory mb-10 text-center">الأسئلة الشائعة</h1>
+      <div className="space-y-4">
+        {list.map((f) => (
+          <details key={f.id} className="bg-white dark:bg-white/5 rounded-xl p-5 group">
+            <summary className="font-bold cursor-pointer dark:text-ivory">{f.question}</summary>
+            <p className="text-sm text-gray-500 mt-3 leading-7">{f.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  );
+}

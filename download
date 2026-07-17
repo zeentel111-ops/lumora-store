@@ -1,0 +1,23 @@
+export const metadata = { title: 'من نحن' };
+
+export default function AboutPage() {
+  return (
+    <div className="max-w-3xl mx-auto px-5 py-16">
+      <h1 className="font-display text-4xl text-plum dark:text-ivory mb-6">من نحن</h1>
+      <div className="space-y-5 text-charcoal/80 dark:text-ivory/80 leading-8">
+        <p>
+          Lumora علامة سورية لمستحضرات التجميل الطبيعية، انطلقت من حلب - اعزاز بهدف تقديم منتجات عناية
+          وتجميل بمكونات نباتية آمنة، بعيدًا عن المواد القاسية على البشرة.
+        </p>
+        <p>
+          نؤمن أن الجمال الحقيقي يبدأ من العناية الصحيحة، لذلك نختار كل منتج ونجرّبه بعناية قبل أن يصل إليكِ،
+          ونحرص على أن يناسب مختلف أنواع البشرة والاحتياجات.
+        </p>
+        <p>
+          فريقنا صغير لكنه شغوف، ونسعى دائمًا لتقديم تجربة تسوّق سهلة وموثوقة، من اختيار المنتج وحتى وصوله
+          إلى باب بيتكِ.
+        </p>
+      </div>
+    </div>
+  );
+}
